@@ -64,3 +64,22 @@ class sms():
         self.LSP = "m_{#tilde{#chi}_{1}^{0}} [GeV]"
         # turn off diagonal lines
         self.diagOn = False
+
+    def T2tt(self):
+        # model name
+        self.modelname = "T2tt"
+        # decay chain
+        self.label= "pp #rightarrow #tilde{t_1} #tilde{t_1^\ast}, #tilde{t_1} #rightarrow t #tilde{#chi}^{0}_{1}";
+        # scan range to plot
+        self.Xmin = 100.
+        self.Xmax = 900.
+        self.Ymin = 0.
+        self.Ymax = 800.
+        self.Zmin = 0.001
+        self.Zmax = 2.
+        # produce sparticle
+        self.sParticle = "m_{#tilde{t_1}} [GeV]"
+        # LSP
+        self.LSP = "m_{#tilde{#chi}_{1}^{0}} [GeV]"
+        # turn off diagonal lines
+        self.diagOn = False
