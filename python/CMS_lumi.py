@@ -88,8 +88,6 @@ def CMS_lumi(pad,  iPeriod,  iPosX ):
     elif ( iPeriod==0 ):
         lumiText += lumi_sqrtS
             
-    print lumiText
-
     latex = rt.TLatex()
     latex.SetNDC()
     latex.SetTextAngle(0)

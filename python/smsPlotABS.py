@@ -84,12 +84,12 @@ class smsPlotABS(object):
         graphWhite.Draw("LSAME")
         self.c.graphWhite = graphWhite
        	CMS_lumi.writeExtraText = 0
-	CMS_lumi.extraText = "Preliminary"
-	CMS_lumi.lumi_13TeV="2.1 fb^{-1}"
+        CMS_lumi.extraText = "Preliminary"
+        CMS_lumi.lumi_13TeV="35.9 fb^{-1}"
 
-	CMS_lumi.lumi_sqrtS = "13 TeV"  
-	iPos=0
-	CMS_lumi.CMS_lumi(self.c,4, iPos)
+        CMS_lumi.lumi_sqrtS = "13 TeV"  
+        iPos=0
+        CMS_lumi.CMS_lumi(self.c,4, iPos)
         # CMS LABEL
         textCMS = rt.TLatex(0.25,0.96,"  %s " %(self.preliminary))
         textCMS.SetNDC()
@@ -99,7 +99,7 @@ class smsPlotABS(object):
         textCMS.Draw()
         self.c.textCMS = textCMS
         # MODEL LABEL
-        textModelLabel= rt.TLatex(0.15,0.90,"%s  NLO+NLL exclusion" %self.model.label)
+        textModelLabel= rt.TLatex(0.15,0.90,"%s NLO+NLL excl." %self.model.label)
         textModelLabel.SetNDC()
         textModelLabel.SetTextAlign(13)
         textModelLabel.SetTextFont(42)
@@ -114,10 +114,27 @@ class smsPlotABS(object):
         textNLONLL.SetTextSize(0.04)
         textNLONLL.Draw()
         #self.c.textNLONLL = textNLONLL
+        if hasattr(self.model,"mCha"):
+            textMCha= rt.TLatex(0.16,0.65,self.model.mCha)
+            textMCha.SetNDC()
+            textMCha.SetTextAlign(13)
+            textMCha.SetTextFont(42)
+            textMCha.SetTextSize(0.035)
+            textMCha.Draw()
+            self.c.textMCha = textMCha
+        if hasattr(self.model,"mSlep"):
+            textMSlep= rt.TLatex(0.16,0.7,self.model.mSlep)
+            textMSlep.SetNDC()
+            textMSlep.SetTextAlign(13)
+            textMSlep.SetTextFont(42)
+            textMSlep.SetTextSize(0.035)
+            textMSlep.Draw()
+            self.c.textMSlep = textMSlep
 
     def Save(self,label):
         # save the output
         self.c.SaveAs("%s.pdf" %label)
+        self.c.SaveAs("%s.root" %label)
         
     def DrawLegend(self):
         xRange = self.model.Xmax-self.model.Xmin

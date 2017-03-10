@@ -4,7 +4,7 @@ from sms import *
 from smsPlotABS import *
 
 # class producing the 2D plot with xsec colors
-class smsPlotXSEC(smsPlotABS):
+class smsPlotSIG(smsPlotABS):
 
     def __init__(self, modelname, histo, obsLimits, expLimits, energy, lumi, preliminary, label):
         self.standardDef(modelname, histo, obsLimits, expLimits, energy, lumi, preliminary)
@@ -14,7 +14,8 @@ class smsPlotXSEC(smsPlotABS):
         self.histo = histo['histogram']
         # canvas style
         self.setStyle()
-        self.setStyleCOLZ()
+        self.c.SetLogz(0)
+        self.setStyleCOLZ() 
 
     # define the plot canvas
     def setStyleCOLZ(self):        
@@ -23,8 +24,8 @@ class smsPlotXSEC(smsPlotABS):
         self.histo.GetZaxis().SetTitleFont(42)
         self.histo.GetZaxis().SetLabelSize(0.035)
         self.histo.GetZaxis().SetTitleSize(0.035)
-        self.histo.SetMinimum(self.model.Zmin)
-        self.histo.SetMaximum(self.model.Zmax)
+        self.histo.SetMinimum(-3)
+        self.histo.SetMaximum(3)
 
         # define the palette for z axis
         NRGBs = 5
@@ -49,7 +50,7 @@ class smsPlotXSEC(smsPlotABS):
         palette.SetLabelSize(0.035)
 
     def DrawPaletteLabel(self):
-        textCOLZ = rt.TLatex(0.98,0.15,"95% C.L. upper limit on cross section [pb]")
+        textCOLZ = rt.TLatex(0.98,0.15,"Observed significance [#sigma]")
         textCOLZ.SetNDC()
         #textCOLZ.SetTextAlign(13)
         textCOLZ.SetTextFont(42)
@@ -65,7 +66,7 @@ class smsPlotXSEC(smsPlotABS):
         self.histo.Draw("COLZSAME")
         if self.model.diagOn:
             self.DrawDiagonal()
-        self.DrawLines()
+        #self.DrawLines()
         self.DrawText()
         self.DrawLegend()
         self.DrawPaletteLabel()
