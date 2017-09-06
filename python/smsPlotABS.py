@@ -115,7 +115,7 @@ class smsPlotABS(object):
         textNLONLL.Draw()
         #self.c.textNLONLL = textNLONLL
         if hasattr(self.model,"mCha"):
-            textMCha= rt.TLatex(0.16,0.65,self.model.mCha)
+            textMCha= rt.TLatex(0.17,0.65,self.model.mCha)
             textMCha.SetNDC()
             textMCha.SetTextAlign(13)
             textMCha.SetTextFont(42)
@@ -123,7 +123,7 @@ class smsPlotABS(object):
             textMCha.Draw()
             self.c.textMCha = textMCha
         if hasattr(self.model,"mSlep"):
-            textMSlep= rt.TLatex(0.16,0.7,self.model.mSlep)
+            textMSlep= rt.TLatex(0.17,0.7,self.model.mSlep)
             textMSlep.SetNDC()
             textMSlep.SetTextAlign(13)
             textMSlep.SetTextFont(42)
@@ -170,7 +170,7 @@ class smsPlotABS(object):
         LObsM.SetPoint(0,self.model.Xmin+3*xRange/100, self.model.Ymax-1.50*yRange/100*10)
         LObsM.SetPoint(1,self.model.Xmin+10*xRange/100, self.model.Ymax-1.50*yRange/100*10)
 
-        textObs = rt.TLatex(self.model.Xmin+11*xRange/100, self.model.Ymax-1.50*yRange/100*10, "Observed #pm 1 #sigma_{theory}")
+        textObs = rt.TLatex(self.model.Xmin+11*xRange/100, self.model.Ymax-1.50*yRange/100*10, "Observed #pm theory uncertainty")
         textObs.SetTextFont(42)
         textObs.SetTextSize(0.040)
         textObs.Draw()
@@ -203,7 +203,7 @@ class smsPlotABS(object):
         LExpM.SetPoint(0,self.model.Xmin+3*xRange/100, self.model.Ymax-2.15*yRange/100*10)
         LExpM.SetPoint(1,self.model.Xmin+10*xRange/100, self.model.Ymax-2.15*yRange/100*10)
 
-        textExp = rt.TLatex(self.model.Xmin+11*xRange/100, self.model.Ymax-2.15*yRange/100*10, "Expected #pm 1 #sigma_{experiment}")
+        textExp = rt.TLatex(self.model.Xmin+11*xRange/100, self.model.Ymax-2.15*yRange/100*10, "Expected, median & 68%")
         textExp.SetTextFont(42)
         textExp.SetTextSize(0.040)
         textExp.Draw()
