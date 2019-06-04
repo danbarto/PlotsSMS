@@ -2,6 +2,7 @@ import ROOT as rt
 from array import *
 from sms import *
 from smsPlotABS import *
+import copy
 
 # class producing the 2D plot with xsec colors
 class smsPlotXSEC(smsPlotABS):
@@ -58,7 +59,7 @@ class smsPlotXSEC(smsPlotABS):
         textCOLZ.Draw()
         self.c.textCOLZ = textCOLZ
             
-    def Draw(self):
+    def Draw(self, lumi = None, zAxis_range = (10**-3, 10**2)):
         self.emptyHisto.GetXaxis().SetRangeUser(self.model.Xmin, self.model.Xmax)
         self.emptyHisto.GetYaxis().SetRangeUser(self.model.Ymin, self.model.Ymax)
         self.emptyHisto.Draw()
@@ -66,7 +67,8 @@ class smsPlotXSEC(smsPlotABS):
         if self.model.diagOn:
             self.DrawDiagonal()
         self.DrawLines()
-        self.DrawText()
+        self.DrawText(lumi = lumi)
         self.DrawLegend()
         self.DrawPaletteLabel()
-
+        self.emptyHisto.GetZaxis().SetRangeUser(*zAxis_range )
+        self.c.Update()

@@ -63,7 +63,7 @@ class smsPlotABS(object):
         self.emptyHisto.GetYaxis().SetTitle(self.model.LSP)
         #self.emptyHisto.GetYaxis().CenterTitle(True)
                 
-    def DrawText(self):
+    def DrawText(self, lumi = None):
         #redraw axes
         self.c.RedrawAxis()
         # white background
@@ -85,11 +85,11 @@ class smsPlotABS(object):
         self.c.graphWhite = graphWhite
        	CMS_lumi.writeExtraText = 0
         CMS_lumi.extraText = "Preliminary"
-        CMS_lumi.lumi_13TeV="35.9 fb^{-1}"
+        CMS_lumi.lumi_13TeV="%3.1f fb^{-1}"%( lumi if lumi is not None else 31.5 )
 
-        CMS_lumi.lumi_sqrtS = "13 TeV"  
         iPos=0
         CMS_lumi.CMS_lumi(self.c,4, iPos)
+        #CMS_lumi.lumi_sqrtS = "13 TeV" if eraText is None else eraText 
         # CMS LABEL
         textCMS = rt.TLatex(0.25,0.96,"  %s " %(self.preliminary))
         textCMS.SetNDC()
