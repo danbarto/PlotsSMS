@@ -78,16 +78,16 @@ class sms():
         # decay chain
         self.label= "pp #rightarrow #tilde{t}_{1} #bar{#tilde{t}}_{1}, #tilde{t}_{1} #rightarrow t #tilde{#chi}^{0}_{1}";
         # scan range to plot
-        self.Xmin = 150.
+        self.Xmin = 199.
         self.Xmax = 1200.
         self.Ymin = 0.
         self.Ymax = 800.
         self.Zmin = 0.001
         self.Zmax = 100.
         # produce sparticle
-        self.sParticle = "m_{#tilde{t}_{1}} (GeV)"
+        self.sParticle = "m_{ #tilde{t}_{1}} (GeV)"
         # LSP
-        self.LSP = "m_{#tilde{#chi}_{1}^{0}} (GeV)"
+        self.LSP = "m_{ #tilde{#chi}_{1}^{0}} (GeV)"
         # turn off diagonal lines
         self.diagOn = False
 
@@ -184,7 +184,7 @@ class sms():
         self.mSlep = "m_{#tilde{l}} = 0.5 (m_{#tilde{#chi}^{#pm}_{1}} - m_{#tilde{#chi}^{0}_{1}}) + m_{#tilde{#chi}^{0}_{1}}"
         # scan range to plot
         self.Xmin = 200.
-        self.Xmax = 1400.
+        self.Xmax = 1600.
         self.Ymin = 1.
         self.Ymax = 1250.
         self.Zmin = 0.0001
@@ -206,7 +206,7 @@ class sms():
         self.mSlep = "m_{#tilde{l}} = 0.95 (m_{#tilde{#chi}^{#pm}_{1}} - m_{#tilde{#chi}^{0}_{1}}) + m_{#tilde{#chi}^{0}_{1}}"
         # scan range to plot
         self.Xmin = 200.
-        self.Xmax = 1400.
+        self.Xmax = 1600.
         self.Ymin = 1.
         self.Ymax = 1350.
         self.Zmin = 0.0001

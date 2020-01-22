@@ -85,7 +85,10 @@ class smsPlotABS(object):
         self.c.graphWhite = graphWhite
        	CMS_lumi.writeExtraText = 0
         CMS_lumi.extraText = "Preliminary"
-        CMS_lumi.lumi_13TeV="%3.1f fb^{-1}"%( lumi if lumi is not None else 31.5 )
+        if lumi>100:
+            CMS_lumi.lumi_13TeV="%3.0f fb^{-1}"%( lumi if lumi is not None else 31.5 )
+        else:
+            CMS_lumi.lumi_13TeV="%3.1f fb^{-1}"%( lumi if lumi is not None else 31.5 )
 
         iPos=0
         CMS_lumi.CMS_lumi(self.c,4, iPos)
@@ -133,6 +136,7 @@ class smsPlotABS(object):
 
     def Save(self,label):
         # save the output
+        self.c.SaveAs("%s.png" %label)
         self.c.SaveAs("%s.pdf" %label)
         self.c.SaveAs("%s.root" %label)
         
